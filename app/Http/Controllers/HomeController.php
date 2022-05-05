@@ -39,7 +39,7 @@ class HomeController extends Controller
         ]);
 
         User::where('id',$notselectedid)->update([
-            'hits' => $notselected->hits + 1,
+            
             'dislikes' => $notselected->dislikes + 1
         ]);
 
