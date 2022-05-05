@@ -31,13 +31,14 @@ class HomeController extends Controller
     {
         $selected = User::where('id',$selectedid)->first();
         $notselected = User::where('id',$notselectedid)->first();
+
         User::where('id',$selectedid)->update([
             'hits' => $selected->hits + 1,
             'dislikes' => $selected->dislikes + 1
             
         ]);
 
-        User::where('id',$notselected)->update([
+        User::where('id',$notselectedid)->update([
             'hits' => $notselected->hits + 1,
             'dislikes' => $notselected->dislikes + 1
         ]);
