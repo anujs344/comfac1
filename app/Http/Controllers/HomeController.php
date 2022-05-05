@@ -34,7 +34,7 @@ class HomeController extends Controller
 
         User::where('id',$selectedid)->update([
             'hits' => $selected->hits + 1,
-            'dislikes' => $selected->dislikes + 1
+            
             
         ]);
 
