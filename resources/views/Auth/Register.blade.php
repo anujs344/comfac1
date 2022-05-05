@@ -149,6 +149,7 @@ input[type="submit"]{
     <div class="register-form">
         <form action="{{route('postregister')}}" enctype="multipart/form-data" method="POST">
             @csrf
+            {{ csrf_field() }}
                 <input type="text" placeholder="Username" name="name">
                 <input type="password" placeholder="Password" name="password">
                 <input type="file" accept="image/*" name="imagename">
