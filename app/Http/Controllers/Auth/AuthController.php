@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
+ 
     
+    public $blah;
     public function getregister()
     {
         if(Auth::check())
