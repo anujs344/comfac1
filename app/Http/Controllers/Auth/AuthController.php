@@ -51,6 +51,7 @@ class AuthController extends Controller
         //     $imageName,
         //     's3'
         // );
+        dd(env('AWS_DEFAULT_REGION'));
 
         $url = Storage::disk('s3')->temporaryUrl(
             $path."/".$imageName,
