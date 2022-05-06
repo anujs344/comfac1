@@ -157,7 +157,7 @@
                <div class="photo-body">
                    <div class="box photo1">
                        
-                            <a href="/haayouselected/{{$leftimageid->id}}/{{$rightimageid->id}}"> <img src="{{$rightimageid->imagepath}}" style="width:200px;height:200px;border: 3px solid red;"></a>
+                            <a href="/haayouselected/{{$leftimageid->id}}/{{$rightimageid->id}}"> <img src="{{$leftimageid->imagepath}}" style="width:200px;height:200px;border: 3px solid red;"></a>
                             <p>Name- {{$leftimageid->name}}  <br>Total hits- {{$leftimageid->hits}} peoples
                             <br>Total dislikes - {{$leftimageid->dislikes}}
                             </p>    
@@ -166,7 +166,7 @@
                    </div>
                    <h1>OR</h1>
                    <div class="box photo1">
-                    <a href="/haayouselected/{{$rightimageid->id}}/{{$leftimageid->id}}"> <img src="{{$leftimageid->imagepath}}"  style="width:200px;height:200px;border: 3px solid red;"></a>
+                    <a href="/haayouselected/{{$rightimageid->id}}/{{$leftimageid->id}}"> <img src="{{$rightimageid->imagepath}}"  style="width:200px;height:200px;border: 3px solid red;"></a>
                     <p>Name- {{$rightimageid->name}}  <br>Total hits- {{$rightimageid->hits}} peoples
                         <br>Total dislikes - {{$rightimageid->dislikes}}
                     </p>

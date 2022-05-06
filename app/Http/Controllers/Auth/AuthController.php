@@ -40,7 +40,7 @@ class AuthController extends Controller
         // $path = Storage::disk('s3')->put('images', $req->file('imagename'),'public-read');
         // $path = Storage::disk('s3')->url($path);
 
-        $path = "storage/test_images";
+        $path = "storage/images";
         $imageName = time().".".$req->file('imagename')->getClientOriginalExtension();
         $file = $req->file('imagename');
 
