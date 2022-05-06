@@ -46,12 +46,12 @@ class AuthController extends Controller
 
         // Storage::disk('s3')->put($path."/".$imageName,$file);
         // Storage::disk('s3')->putFileAs($path,$file.$imageName);
-        // $file->storeAs(
-        //     $path,
-        //     $imageName,
-        //     's3'
-        // );
-        dd(env('AWS_DEFAULT_REGION'));
+        $file->storeAs(
+            $path,
+            $imageName,
+            's3'
+        );
+        // dd(env('AWS_DEFAULT_REGION'));
 
         $url = Storage::disk('s3')->temporaryUrl(
             $path."/".$imageName,
