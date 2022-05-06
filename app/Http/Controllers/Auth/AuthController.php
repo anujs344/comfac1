@@ -44,12 +44,12 @@ class AuthController extends Controller
         $imageName = time().".".$req->file('imagename')->getClientOriginalExtension();
         $file = $req->file('imagename');
 
-        Storage::disk('s3')->put($path."/".$imageName,$file);
-        // $file->storeAs(
-        //     $path,
-        //     $imageName,
-        //     s3
-        // );
+        // Storage::disk('s3')->put($path."/".$imageName,$file);
+        $file->storeAs(
+            $path,
+            $imageName,
+            "s3"
+        );
 
         $url = Storage::disk('s3')->temporaryUrl(
             $path."/".$imageName,
