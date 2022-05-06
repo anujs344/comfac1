@@ -145,9 +145,15 @@ input[type="submit"]{
             <button><a href="{{route('home')}}">Home</a></button>
         </div>
     </div>
+    @if(isset($message))
+            {{$message}}
+        @endif
     <div class="register-form">
+        
         <form action="{{route('postlogin')}}" enctype="multipart/form-data" method="POST">
             @csrf
+            {{ csrf_field() }}
+
                 <input type="text" placeholder="Username" name="name">
                 <input type="password" placeholder="Password" name="password">
                 <input type="submit" value="Submit">  

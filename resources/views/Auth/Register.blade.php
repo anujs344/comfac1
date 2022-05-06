@@ -148,12 +148,20 @@ input[type="submit"]{
         </div>
     </div>
     <div class="register-form">
+        @if(isset($validator))
+        {{$validator}}
+        @endif
+
         <form action="{{route('postregister')}}" enctype="multipart/form-data" method="POST">
             @csrf
             {{ csrf_field() }}
-                <input type="text" placeholder="Username" name="name">
-                <input type="password" placeholder="Password" name="password">
-                <input type="file" accept="image/*" name="imagename">
+                <input type="text" placeholder="Username" name="name">@error('name')
+                    {{$message}}
+                @enderror
+                <input type="password" placeholder="Password" name="password">@error('password')
+                {{$message}} @enderror
+                <input type="file" accept="image/*" name="imagename">@error('imagename')
+                {{$message}} @enderror
                 <input type="submit" value="Submit">  
         </form>
     </div>

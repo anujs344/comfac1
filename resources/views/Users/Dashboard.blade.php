@@ -144,12 +144,12 @@
         <h2>Diselected:{{$data->dislikes}}<h2>
          
         <p>You are 
-            @if (($data->hits/$data->hits)*100)
-                {{($data->hits/$data->views)*100}}
+            @if($new)
+                yet to be liked
             @else
-                No yet registraion
+                {{($data->hits/$data->views)*100}}   % popular in your college</p>
             @endif
-            % popular in your college</p>
+          
         <span>!!Hot Girl/Boy!!</span>
 
         <p>Share it on instagram and facebook and show them how popular you are</p>
