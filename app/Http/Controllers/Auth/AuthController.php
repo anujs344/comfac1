@@ -35,14 +35,28 @@ class AuthController extends Controller
         $user = new User();
         $user->name = $req->name;
         $user->password = Hash::make( $req->password );
-        $imageName = time().'.'.$req->file('imagename')->getClientOriginalExtension(); 
-        
-       $req->file('imagename')->storeAs('public/images',$imageName);
-        
-        
-        
+        // $imageName = time().'.'.$req->file('imagename')->getClientOriginalExtension(); 
+       
+        // $path = Storage::disk('s3')->put('images', $req->file('imagename'),'public-read');
+        // $path = Storage::disk('s3')->url($path);
+
+        $path = "storage/test_images";
+        $imageName = time().".".$req->file('imagename')->getClientOriginalExtension();
+        $file = $req->file('imagename');
+
+        $file->storeAs(
+            $path,
+            $imageName,
+            's3'
+        );
+
+        $url = Storage::disk('s3')->temporaryUrl(
+            $path."/".$imageName,
+            now()->addMinutes(10)
+        );
+
         $user->imagename = $imageName;
-        $user->imagepath = "imagepath";
+        $user->imagepath = $url;
         $user->save();
 
         return redirect()->route('getlogin');
