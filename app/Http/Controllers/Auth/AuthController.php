@@ -45,11 +45,12 @@ class AuthController extends Controller
         $file = $req->file('imagename');
 
         // Storage::disk('s3')->put($path."/".$imageName,$file);
-        $file->storeAs(
-            $path,
-            $imageName,
-            "s3"
-        );
+        Storage::disk('s3')->putFileAs($path,$file.$imageName);
+        // $file->storeAs(
+        //     $path,
+        //     $imageName,
+        //     's3'
+        // );
 
         $url = Storage::disk('s3')->temporaryUrl(
             $path."/".$imageName,
